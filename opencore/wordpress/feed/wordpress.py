@@ -83,6 +83,14 @@ class WordpressFeedAdapter(BaseFeedAdapter):
             if not title.strip():
                 title = unescape(entry.summary) # XXX unescaping seems weird
                 
+            # see #2845 - it seems the results returned by wordpress use
+            # the request URL to determine the items' link base
+            # and since we're using the "internal" link this will
+            # be wrong. so i'll just manually replace each item's
+            # 'base href' with the right one.
+            if entry.link.startswith(base_uri):
+                entry.link = entry.link[len(base_uri):] # lstrip base_uri
+                entry.link = '/'.join((self.link.rstrip('/'), entry.link.lstrip('/')))
             self.add_item(title=title,
                           description=entry.summary,
                           link=entry.link,

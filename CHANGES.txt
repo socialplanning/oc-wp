@@ -1,6 +1,7 @@
 0.2 (27-7-2009)
 ===============
 
-Summary page viewlet now pulls wordpress feeds from the internal URL with a signed cookie and X-Openplans-Project header rather
-than the external URI. See http://www.coactivate.org/projects/opencore/lists/opencore-dev/archive/2009/07/1247921892729/forum_view
-for more details. (egj)
+* Summary page viewlet now accesses WordPress by URLs that are internal to the system,
+  to save on bandwidth, time and other good things of the earth. See 
+  http://www.coactivate.org/projects/opencore/lists/opencore-dev/archive/2009/07/1247921892729/forum_view
+  for more details. (egj)

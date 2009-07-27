@@ -1,12 +1,13 @@
 from setuptools import setup, find_packages
 
-version = '0.2dev'
+version = '0.3dev'
+
+long_description = "Changes:\n\n%s" % open('CHANGES.txt').read()
 
 setup(name='oc-wp',
       version=version,
       description="opencore wordpress client package",
-      long_description="""\
-""",
+      long_description=long_description,
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",
@@ -16,9 +17,9 @@ setup(name='oc-wp',
         "Topic :: Software Development :: Libraries :: Python Modules",
         ],
       keywords='',
-      author='',
-      author_email='',
-      url='',
+      author='The OpenCore community',
+      author_email='opencore-dev@lists.coactivate.org',
+      url='http://coactivate.org/projects/opencore',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['opencore'],

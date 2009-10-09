@@ -113,10 +113,29 @@ def notify_wordpress_user_joined_project(mship, event):
             )
     send_to_wordpress(uri, username, params, mship)
 
+from opencore.member.interfaces import IHandleMemberWorkflow
+
 @project_contains_blog
 def notify_wordpress_role_changed(mship, event):
     uri = 'openplans-change-role.php'
     username = mship.getId()
+
+    # it is possible for us to get here with an unconfirmed member
+    # if the unconfirmed member's email address was invited into
+    # a project -- opencore will create a membership object for
+    # the (user, project) and assign the mship its default roles
+    # which will trigger the IChangedTeamRolesEvent!
+    #
+    # when this happens, we shouldn't even try to talk to wordpress,
+    # because the wordpress user will be created when the member
+    # confirms the unconfirmed account.
+    #
+    # will wordpress also then be told about the user's membership
+    # in this project?  i have no idea.
+    user = mship.getMember()
+    if IHandleMemberWorkflow(user).is_unconfirmed():
+        return
+
     team = mship.aq_inner.aq_parent
     proj_id = team.getId()
     params = dict(

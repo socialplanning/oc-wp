@@ -88,9 +88,15 @@ class WordpressFeedAdapter(BaseFeedAdapter):
             # and since we're using the "internal" link this will
             # be wrong. so i'll just manually replace each item's
             # 'base href' with the right one.
+            #
+            # we have to do this for the link to the entry itself and also
+            # the link to the entry's comments/replies, if it exists
             if entry.link.startswith(base_uri):
                 entry.link = entry.link[len(base_uri):] # lstrip base_uri
                 entry.link = '/'.join((self.link.rstrip('/'), entry.link.lstrip('/')))
+            if response is not None and entry.comments.startswith(base_uri):
+                entry.comments = entry.comments[len(base_uri):] # lstrip base_uri
+                entry.comments = '/'.join((self.link.rstrip('/'), entry.comments.lstrip('/')))
             self.add_item(title=title,
                           description=entry.summary,
                           link=entry.link,

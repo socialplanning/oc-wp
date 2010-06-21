@@ -70,15 +70,6 @@ class WordpressFeedAdapter(BaseFeedAdapter):
         feed.entries = feed.entries[:n_items]
 
         for entry in feed.entries:
-            n_comments = int(entry.get('slash_comments', 0))
-
-            if n_comments:
-                response = FeedItemResponses(n_comments,
-                                             entry.comments,
-                                             'comment')
-            else:
-                response=None
-
             title = entry.title
             if not title.strip():
                 title = unescape(entry.summary) # XXX unescaping seems weird
@@ -94,9 +85,20 @@ class WordpressFeedAdapter(BaseFeedAdapter):
             if entry.link.startswith(base_uri):
                 entry.link = entry.link[len(base_uri):] # lstrip base_uri
                 entry.link = '/'.join((self.link.rstrip('/'), entry.link.lstrip('/')))
-            if response is not None and entry.comments.startswith(base_uri):
-                entry.comments = entry.comments[len(base_uri):] # lstrip base_uri
-                entry.comments = '/'.join((self.link.rstrip('/'), entry.comments.lstrip('/')))
+
+            num_comments = int(entry.get('slash_comments', 0))
+
+            if num_comments > 0:
+                if entry.comments.startswith(base_uri): # see #2845
+                    entry.comments = entry.comments[len(base_uri):]
+                    entry.comments = '/'.join((self.link.rstrip('/'), 
+                                               entry.comments.lstrip('/')))
+                response = FeedItemResponses(num_comments,
+                                             entry.comments,
+                                             'comment')
+            else:
+                response = None
+
             self.add_item(title=title,
                           description=entry.summary,
                           link=entry.link,

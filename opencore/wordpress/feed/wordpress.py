@@ -103,6 +103,7 @@ class WordpressFeedAdapter(BaseFeedAdapter):
                           description=entry.summary,
                           link=entry.link,
                           author=entry.author,
+                          authorURL=self.memberURL(entry.userid),
                           pubDate=entry.date,
                           responses=response)
 

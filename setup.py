@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '0.3dev'
+version = '0.3'
 
 long_description = "Changes:\n\n%s" % open('CHANGES.txt').read()
 

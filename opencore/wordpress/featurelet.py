@@ -1,4 +1,5 @@
 from Products.CMFCore.utils import getToolByName
+from opencore.i18n import _
 from opencore.interfaces import IProject
 from opencore.utility.interfaces import IHTTPClient
 from opencore.utility.interfaces import IProvideSiteConfig
@@ -23,7 +24,7 @@ class WordPressFeaturelet(BaseFeaturelet):
     implements(IFeaturelet)
 
     id = "blog"
-    title = "Blog"
+    title = _(u"Blog")
     installed_marker = IWordPressFeatureletInstalled
     _required_interfaces = BaseFeaturelet._required_interfaces + (IProject,)
 

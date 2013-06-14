@@ -1,5 +1,10 @@
 .. contents::
 
+Introduction
+============
+
+OpenCore Software Wordpress client package
+
 .. Note!
    -----
    Update the following URLs to point to your:

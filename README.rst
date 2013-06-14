@@ -5,8 +5,8 @@ Introduction
 
 OpenCore Software Wordpress client package
 
-.. Note!
-   -----
+.. note::
+
    Update the following URLs to point to your:
 
    - Code repository: https://github.com/socialplanning/oc-wp

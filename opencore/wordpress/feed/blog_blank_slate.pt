@@ -1,6 +1,7 @@
 <!-- project member blank slate -->
 <div tal:condition="context/isProjectMember"
-     id="oc-feed-blog" class="oc-widget oc-widget-feed oc-column">
+     id="oc-feed-blog" class="oc-widget oc-widget-feed oc-column" 
+     i18n:domain="opencore">
   <h2 class="oc-feed-title">
     <a tal:attributes="href view/feed/link" i18n:translate="">Blog</a>     
   </h2>	

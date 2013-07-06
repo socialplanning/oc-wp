@@ -1,6 +1,7 @@
 import feedparser
 import urllib2
 
+from opencore.i18n import _
 from opencore.feed.base import BaseFeedAdapter
 from opencore.feed.base import FeedItemResponses
 from opencore.feed.interfaces import IFeedData
@@ -19,8 +20,8 @@ class WordpressFeedAdapter(BaseFeedAdapter):
     implements(IFeedData)
     adapts(IProject)
 
-    title = 'Blog'
-    itemstitle = 'blog posts'
+    title = _(u'Blog')
+    itemstitle = _(u'blog posts')
 
     @property
     def link(self):

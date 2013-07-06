@@ -1,7 +1,18 @@
+Changelog
+=========
 
+0.3-dev - (unreleased)
+----------------------
+
+ * Added Spanish translation. (macagua)
+ * Added initial translations (gettext files). (macagua)
+ * Added .gitignore file. (macagua)
+ * Added README file. (macagua)
+ * Added i18n support. (macagua)
+ * Added more metadata package. (macagua)
 
 0.2 (27-7-2009)
-===============
+---------------
 
 * Summary page viewlet now accesses WordPress by URLs that are internal to the system,
   to save on bandwidth, time and other good things of the earth. See 

@@ -4,12 +4,13 @@ version = '0.3'
 
 long_description = "Changes:\n\n%s" % open('CHANGES.txt').read()
 
-setup(name='oc-wp',
-      version=version,
-      description="OpenCore Software Wordpress client package",
-      long_description=long_description,
-      # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
-      classifiers=[
+setup(
+    name='oc-wp',
+    version=version,
+    description="OpenCore Software Wordpress client package",
+    long_description=long_description,
+    # Get more strings from https://pypi.org/pypi?:action=list_classifiers
+    classifiers=[
         "Development Status :: 3 - Alpha",
         "Environment :: Plugins",
         "Environment :: Web Environment",
@@ -26,24 +27,25 @@ setup(name='oc-wp',
         "Programming Language :: Python :: 2.7",
         "Topic :: Office/Business :: Office Suites",
         "Topic :: Software Development :: Libraries :: Python Modules",
-      ],
-      keywords='OpenCore Software Wordpress client',
-      author='The OpenCore community',
-      author_email='opencore-dev@lists.coactivate.org',
-      url='http://coactivate.org/projects/opencore',
-      license='GPL',
-      packages=find_packages(exclude=['ez_setup']),
-      namespace_packages=['opencore'],
-      include_package_data=True,
-      zip_safe=False,
-      install_requires=[
-          'setuptools',
-      ],
-      entry_points="""
+    ],
+    keywords='OpenCore Software Wordpress client',
+    author='The OpenCore community',
+    author_email='opencore-dev@lists.coactivate.org',
+    url='http://coactivate.org/projects/opencore',
+    license='GPL',
+    packages=find_packages(exclude=['ez_setup']),
+    namespace_packages=['opencore'],
+    include_package_data=True,
+    zip_safe=False,
+    install_requires=[
+         'setuptools',
+    ],
+    entry_points="""
       # -*- Entry points: -*-
       [opencore.versions]
       oc-wp = opencore.wordpress
       [topp.zcmlloader]
       opencore = opencore.wordpress
-      """,
-      )
+        """,
+    )
+

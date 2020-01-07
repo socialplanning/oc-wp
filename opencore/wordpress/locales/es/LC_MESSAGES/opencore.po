@@ -1,6 +1,6 @@
-# translation of opencore.po to Spanish
+# Gettext Message File for Spanish translation of opencore domain using on opencore.wordpress package
+# Translators:
 # Leonardo J. Caballero G. <leonardocaballero@gmail.com>, 2013.
-# Gettext Message File for opencore
 msgid ""
 msgstr ""
 "Project-Id-Version: opencore\n"
@@ -39,3 +39,4 @@ msgstr "entradas de bitácoras"
 #: ../feed/blog_blank_slate.pt:11
 msgid "blog_write_a_post"
 msgstr "Escribir una entrada"
+
